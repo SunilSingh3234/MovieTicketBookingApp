@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const UserModel = mongoose.models.User || mongoose.model('User', userSchema);
+
 export default UserModel;
 
-
-// 4:16

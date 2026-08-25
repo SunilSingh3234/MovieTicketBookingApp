@@ -3,6 +3,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 import authRouter from './routes/authRoute.js';
+import connectDB from './config/db.js';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -12,15 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 // Database Connection
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB_URI);
-        console.log('Database Connected Successfully');
-    } catch (error) {
-        console.error('Database Connection Error:', error.message);
-        process.exit(1);
-    }
-};
+await connectDB()
 
 connectDB();
 
