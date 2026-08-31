@@ -4,6 +4,7 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 import authRouter from './routes/authRoute.js';
 import connectDB from './config/db.js';
+import showRouter from './routes/ShowRoutes.js';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -19,6 +20,7 @@ connectDB();
 
 // API Endpoints
 app.use('/api/auth', authRouter);
+app.use('/api/show', showRouter)
 
 app.get('/', (req, res) => {
     res.send('API Working Successfully');
